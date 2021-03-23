@@ -16,11 +16,11 @@ mysql.init_app(app)
 
 @app.route("/delete") #Delete student
 def delete():
-  return "Not implemented yet"
   id = request.args.get('id')
   cur = mysql.connection.cursor()
   s = '''DELETE FROM students WHERE ID ='{}';'''.format(id)
   cur.execute(s)
+  return "Student DELETED"
   mysql.connection.commit()
 
 @app.route("/add") #Add Student
